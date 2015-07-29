@@ -1,0 +1,8 @@
+{
+  "includePaths": [
+    ".meteor/local/build/programs/server/assets/packages/francocatena_compass",
+    "client/scssImports"
+  ],
+  "useIndex": true,
+  "indexFilePath" : "client/scssImports/compiled.scss"
+}

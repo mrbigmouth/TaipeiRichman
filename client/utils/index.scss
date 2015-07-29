@@ -3,7 +3,7 @@
  * @copyright   Copyright (c) 2015 OA Wu Design
  */
 
-@import "../scssImports/_oa";
+@import "_oa";
 
 @include font-face("Monaco", font-files("monaco/monaco.ttf", "monaco/monaco.otf"));
 
@@ -42,6 +42,12 @@ html {
 button {
   @include button();
 }
+button.danger {
+  background-color: #c9302c;
+}
+button.warnning {
+  background-color: #f0ad4e;
+}
 
 #main {
   position: relative;
@@ -56,6 +62,7 @@ button {
 
     #map {
       position: relative;
+      top: -90px;
       height: 100%;
       overflow: hidden;
     }
