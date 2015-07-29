@@ -1,0 +1,63 @@
+@import "_oa";
+
+#main {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  height: 100%;
+
+  .map {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+
+    #map {
+      position: relative;
+      top: -90px;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #playerInfo {
+      position: fixed;
+      top: 30px;
+      left: 10px;
+      font-size: 20px;
+
+      div {
+        margin-top: 10px;
+        padding: 10px;
+        border: 1px solid black;
+        background-color: #FFFFFF;
+      }
+    }
+    #action {
+      position: fixed;
+      top: 30px;
+      right: 250px;
+      @include button('red');
+      font-size: 20px;
+    }
+    #game {
+      position: fixed;
+      top: 30px;
+      right: 170px;
+      @include button();
+      font-size: 20px;
+    }
+    #rank {
+      position: fixed;
+      top: 30px;
+      right: 90px;
+      @include button('purple');
+      font-size: 20px;
+    }
+    #about {
+      position: fixed;
+      top: 30px;
+      right: 10px;
+      @include button('green');
+      font-size: 20px;
+    }
+  }
+}
