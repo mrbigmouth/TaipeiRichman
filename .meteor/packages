@@ -7,3 +7,5 @@
 meteor-platform
 fourseven:scss
 francocatena:compass
+accounts-base
+accounts-facebook
