@@ -38,6 +38,9 @@ Template.popUp.events({
   },
   //當使用者點擊Facebook登出時
   'click button[data-action="loginOut"]': function() {
+    if (APP.isLoginUserInGame()) {
+      Meteor.call('playerExitGame');
+    }
     Meteor.logout();
   }
 });
