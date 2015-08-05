@@ -1,6 +1,7 @@
 //預設的彈跳視窗狀態
 Session.setDefault('popUpState', {
-  open: true
+  open: true,
+  content: ''
 });
 
 Template.popUp.helpers({
