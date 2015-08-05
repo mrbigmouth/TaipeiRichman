@@ -1,0 +1,36 @@
+<template name="popUp">
+  <div id="popUp" class="{{isHide}}">
+    <div class="paper">
+      <div class="paper-inner">
+        <h2>遊戲說明</h2>
+        <div class="pop_up">
+          <div class="fb-like"></div>
+          <p>1.擲骰子前進，投資土地或建築，可向所有路經的其他玩家收取過路費。</p>
+          <p>
+          {{#if currentUser}}
+            {{#if isUserPlayer}}
+              <button type="button" class="warnning" data-action="exit">離開遊戲</button>
+            {{else}}
+              <button type="button" data-action="join">參加遊戲</button>
+            {{/if}}
+            <button type="button" data-action="loginOut">Facebook登出</button>
+          {{else}}
+            <button type="button" data-action="loginIn">Facebook登入</button>
+          {{/if}}
+          </p>
+          <p>當前遊戲玩家：</p>
+          {{#each players}}
+            <div class="i">
+              {{#if this.userId}}
+                玩家{{this.userId}}
+              {{else}}
+                電腦{{this.sort}}
+              {{/if}}
+            </div>
+          {{/each}}
+        </div>
+      </div>
+      <div class="close">✖</div>
+    </div>
+  </div>
+</template>
