@@ -22,7 +22,7 @@
           {{#each players}}
             <div class="i">
               {{#if this.userId}}
-                玩家{{this.userId}}
+                {{>getUserName}}
               {{else}}
                 電腦{{this.sort}}
               {{/if}}
