@@ -20,12 +20,8 @@
           </p>
           <p>當前遊戲玩家：</p>
           {{#each players}}
-            <div class="i">
-              {{#if this.userId}}
-                {{>getUserName}}
-              {{else}}
-                電腦{{this.sort}}
-              {{/if}}
+            <div class="i" style="{{getColorStyle}}">
+              {{getDisplayName}}
             </div>
           {{/each}}
         </div>
