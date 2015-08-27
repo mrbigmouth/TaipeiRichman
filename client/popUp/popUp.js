@@ -11,7 +11,7 @@ Template.popUp.helpers({
   },
   //取得當前玩家資料
   players: function() {
-    return APP.db.player.getPlayersOrderBySort();
+    return APP.db.player.getAllOrderBySort();
   },
   //判斷當前使用者是否為已登入的玩家
   isUserPlayer: function() {

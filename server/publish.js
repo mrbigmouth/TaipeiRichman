@@ -1,7 +1,7 @@
 //發布資料
 Meteor.publish('initializeDB', function() {
   return [
-    APP.db.player.getPlayers()
+    APP.db.player.getAll()
   ];
 });
 
