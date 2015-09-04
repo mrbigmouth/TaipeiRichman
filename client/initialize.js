@@ -12,7 +12,6 @@ function checkInitialize() {
 Meteor.subscribe('initializeDB', function() {
   checkInitialize();
 });
-$.getScript('https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&language=zh-TW&libraries=geometry', checkInitialize);
 //檢查google API是否已載入
 initializeGoogle = function initializeGoogle() {
   checkInitialize();
