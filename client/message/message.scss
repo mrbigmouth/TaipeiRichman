@@ -1,6 +1,6 @@
 @import "_oa";
 
-#logs {
+#message {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -8,7 +8,7 @@
   height: 20%;
   margin: 0;
   padding: 5px;
-  &.canChat {
+  &.haveChatForm {
     margin-bottom: 30px;
   }
 
@@ -37,12 +37,12 @@
     bottom: 5px;
     margin: 0;
   }
-  &.canChat button.toggleChat {
+  &.haveChatForm button.toggleChat {
     bottom: 35px;
   }
 }
 
-#chat {
+#message_chat {
   background: white;
   position: fixed;
   left: 0;
