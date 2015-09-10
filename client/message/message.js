@@ -20,6 +20,17 @@ Template.message.helpers({
     if (this.isChatMessage()) {
       return 'background:#999999;';
     }
+  },
+  //每當訊息資料有任何變動時，自動將捲軸捲到最底
+  makeScrollToBottom: function() {
+    var $message = $( Template.instance().firstNode );
+    //將#message區塊的捲軸捲到最底
+    $message.scrollTop( $message.children('ol').height() + 100 );
+    //訊息資料庫有變動時會自動重新執行
+    APP.db.message.getAllOrderByTime().fetch();
+    //使用者切換篩選訊息模式時會自動重新執行
+    Session.get('isFilterMessage');
+    return;
   }
 });
 
