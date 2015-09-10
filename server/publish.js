@@ -2,7 +2,8 @@
 Meteor.publish('initializeDB', function() {
   return [
     APP.db.landMark.getAll(),
-    APP.db.player.getAll()
+    APP.db.player.getAll(),
+    APP.db.message.getAll()
   ];
 });
 
