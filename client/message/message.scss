@@ -31,13 +31,13 @@
     }
   }
 
-  button.toggleChat {
+  button.toggleFilter {
     position: fixed;
     right: 20px;
     bottom: 5px;
     margin: 0;
   }
-  &.haveChatForm button.toggleChat {
+  &.haveChatForm button.toggleFilter {
     bottom: 35px;
   }
 }

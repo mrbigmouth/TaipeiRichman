@@ -1,3 +1,6 @@
+//預設不篩選訊息
+Session.setDefault('isFilterMessage', false);
+
 Template.message.helpers({
   //判斷使用者是否能夠進行聊天
   userCanChat: function() {
@@ -5,13 +8,25 @@ Template.message.helpers({
   },
   //取得全部訊息
   messageList: function() {
-    return APP.db.message.getAllOrderByTime();
+    if (Session.get('isFilterMessage')) {
+      return APP.db.message.getAllImportantOrderByTime();
+    }
+    else {
+      return APP.db.message.getAllOrderByTime();
+    }
   },
   //若為玩家聊天訊息，以不同的背景色突顯
   applyMessageBackground: function() {
     if (this.isChatMessage()) {
       return 'background:#999999;';
     }
+  }
+});
+
+Template.message.events({
+  //點擊篩選訊息按鈕時，切換isFilterMessage的設定值
+  'click button.toggleFilter': function() {
+    Session.set('isFilterMessage', !Session.get('isFilterMessage') );
   }
 });
 
