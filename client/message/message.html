@@ -1,0 +1,65 @@
+<template name="message">
+  <div id="message" class="{{#if userCanChat}}haveChatForm{{/if}}">
+    <ol>
+      {{#each messageList}}
+        <li style="{{applyMessageBackground}}">
+          <time>({{getFormatTime}})</time>
+          {{#if isSystemMessage}}
+            <span>{{this.content}}</span>
+          {{/if}}
+          {{#if isDiceMessage}}
+            <span>{{getPlayerName}}擲出了「{{getContent}}」！</span>
+          {{/if}}
+          {{#if isBuyMessage}}
+            {{#if isAgree}}
+              <span>{{getPlayerName}}購買了「{{getLandMarkName}}」！</span>
+            {{/if}}
+            {{#if isRefuse}}
+              <span>{{getPlayerName}}放棄購買「{{getLandMarkName}}」。</span>
+            {{/if}}
+            {{#if isFail}}
+              <span>{{getPlayerName}}無法購買「{{getLandMarkName}}」。</span>
+            {{/if}}
+          {{/if}}
+          {{#if isBuildMessage}}
+            {{#if isAgree}}
+              <span>{{getPlayerName}}在「{{getLandMarkName}}」上加蓋了一層房子！</span>
+            {{/if}}
+            {{#if isRefuse}}
+              <span>{{getPlayerName}}放棄在「{{getLandMarkName}}」上進行加蓋。</span>
+            {{/if}}
+            {{#if isFail}}
+              <span>{{getPlayerName}}無法在「{{getLandMarkName}}」上進行加蓋。</span>
+            {{/if}}
+          {{/if}}
+          {{#if isPayMessage}}
+            <span>{{getPlayerName}}支付了 {{getMoneyContent}} 元的費用給「{{getLandMarkName}}」的擁有者{{getOwnerName}}！</span>
+          {{/if}}
+          {{#if isBankruptcyMessage}}
+            <span>{{getPlayerName}}破產啦，所有地產充公處理！</span>
+          {{/if}}
+          {{#if isChatMessage}}
+            <span>{{>getUserName this}}：{{getContent}}</span>
+          {{/if}}
+          {{#if isCarAccidentMessage}}
+            <span>{{getPlayerName}}在「{{getLandMarkName}}」被三寶開車給撞倒啦！</span>
+          {{/if}}
+          {{#if isHospitalMessage}}
+            <span>{{getPlayerName}}住院中（還剩{{getContent}}輪），在此期間無法行動、無法收取過路費！</span>
+          {{/if}}
+        </li>
+      {{/each}}
+    </ol>
+  </div>
+  {{#if userCanChat}}
+    {{> message_chat}}
+  {{/if}}
+</template>
+
+<template name="message_chat">
+  <form id="message_chat">
+    閒聊：
+    <input type="text" name="message" />
+    <button type="submit">送出</button>
+  </form>
+</template>
