@@ -1,3 +1,5 @@
+//重新初始化當前遊戲狀態
+APP.gameStatus.initialize();
 //重新初始化當前地標資料
 APP.db.landMark.initialize();
 //重新初始化當前玩家資料
