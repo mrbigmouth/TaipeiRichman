@@ -3,16 +3,16 @@
  * @copyright   Copyright (c) 2015 OA Wu Design
  */
 
-@import "functions/_oa-input";
-@import "functions/_oa-button";
-@import "functions/_oa-hyperlink";
-@import "functions/_oa-alert";
-@import "functions/_oa-load";
-@import "functions/_oa-table";
-@import "functions/_oa-textarea";
-@import "functions/_oa-paper";
-@import "functions/_oa-checkbox";
-@import "functions/_oa-icon";
+@import "{}/client/scssImports/functions/_oa-input";
+@import "{}/client/scssImports/functions/_oa-button";
+@import "{}/client/scssImports/functions/_oa-hyperlink";
+@import "{}/client/scssImports/functions/_oa-alert";
+@import "{}/client/scssImports/functions/_oa-load";
+@import "{}/client/scssImports/functions/_oa-table";
+@import "{}/client/scssImports/functions/_oa-textarea";
+@import "{}/client/scssImports/functions/_oa-paper";
+@import "{}/client/scssImports/functions/_oa-checkbox";
+@import "{}/client/scssImports/functions/_oa-icon";
 
 @mixin font-smoothing ($val: antialiased) {
   -moz-osx-font-smoothing: $val;
