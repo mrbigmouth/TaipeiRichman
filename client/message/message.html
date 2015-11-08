@@ -49,12 +49,42 @@
           {{/if}}
         </li>
       {{/each}}
+      <li>
+        {{> message_gameStatus}}
+      </li>
     </ol>
     <button class="toggleFilter">篩選訊息</button>
   </div>
   {{#if userCanChat}}
     {{> message_chat}}
   {{/if}}
+</template>
+
+<template name="message_gameStatus">
+  {{#with gameStatus}}
+    {{#if isGameAWaiting}}
+      遊戲正在等候開始...
+    {{else}}
+      {{#if isWaitSystem}}
+        正在等待系統執行中...
+      {{/if}}
+      {{#if isWaitUserDice}}
+        遊戲正在等候{{getPlayerName}}進行擲骰...時限還剩{{getExecuteLeftTime}}秒...
+      {{/if}}
+      {{#if isWaitDicing}}
+        遊戲正在進行擲骰中...
+      {{/if}}
+      {{#if isWaitMoving}}
+        遊戲正在執行{{getPlayerName}}的移動中...
+      {{/if}}
+      {{#if isWaitUserBuy}}
+        遊戲正在等候{{getPlayerName}}決策是否購地...時限還剩{{getExecuteLeftTime}}秒...
+      {{/if}}
+      {{#if isWaitUserBuild}}
+        遊戲正在等候{{getPlayerName}}決策是否建房...時限還剩{{getExecuteLeftTime}}秒...
+      {{/if}}
+    {{/if}}
+  {{/with}}
 </template>
 
 <template name="message_chat">

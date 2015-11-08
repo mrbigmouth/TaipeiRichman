@@ -6,8 +6,13 @@ Template.message.onCreated(function() {
   //每當訊息資料有任何變動時，自動將捲軸捲到最底
   instance.autorun(function() {
     var $message = $( instance.firstNode );
+    var gameStatus = APP.gameStatus;
     //將#message區塊的捲軸捲到最底
     $message.scrollTop( $message.children('ol').height() + 100 );
+    //遊戲開始時要自動執行
+    gameStatus.isGameStart();
+    //遊戲等待對象變更時要自動執行
+    gameStatus.isWaitSystem();
     //訊息資料庫有變動時會自動重新執行
     APP.db.message.getAllOrderByTime().fetch();
     //使用者切換篩選訊息模式時會自動重新執行
