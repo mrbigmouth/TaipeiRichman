@@ -50,6 +50,19 @@ Template.message.events({
   }
 });
 
+Template.message_gameStatus.helpers({
+  gameStatus: function() {
+    if (APP.isInitialized()) {
+      return APP.gameStatus;
+    }
+  },
+  getPlayerName: function() {
+    if (APP.isInitialized()) {
+      return APP.gameStatus.getCurrentPlayer().getDisplayName();
+    }
+  }
+});
+
 Template.message_chat.events({
   'submit': function(e, ins) {
     var form = ins.firstNode;
