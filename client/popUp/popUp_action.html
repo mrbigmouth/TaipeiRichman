@@ -1,0 +1,29 @@
+<template name="popUp_action">
+  <div class="paper" style="width: 500px; height: auto;">
+    <div class="paper-inner">
+      <div class="pop_up">
+        {{#if isDiceAction}}
+          請玩家進行擲骰...
+        {{/if}}
+        {{#if isBuyAction}}
+          是否要花費${{costMoney}}元購買「{{landMarkName}}」？...
+        {{/if}}
+        {{#if isBuildAction}}
+          是否要花費${{costMoney}}元在「{{landMarkName}}」上建造房子？...
+        {{/if}}
+        剩餘時間還有{{leftTime}}秒！
+        {{#if isDiceAction}}
+          <div class="buttons">
+            <button type="button" data-action="roll">擲骰</button>
+          </div>
+        {{else}}
+          <div class="buttons">
+            <button type="button" data-action="agree">是</button>
+            　　　<button type="button" data-action="refuse">否</button>
+          </div>
+        {{/if}}
+      </div>
+    </div>
+    <div class="close">✖</div>
+  </div>
+</template>

@@ -1,0 +1,47 @@
+<template name="popUp_game">
+  <div class="paper">
+    <div class="paper-inner">
+      <h2>遊戲說明</h2>
+      <div class="pop_up">
+        <div class="fb-like"></div>
+        <p>1.擲骰子前進，投資土地或建築，可向所有路經的其他玩家收取過路費。</p>
+        <p>2.學校及政府機關的投資報酬率比較高，但是....</p>
+        <p>3.購買臺大醫院、在上面蓋房子都不會有過路費可收，但是....</p>
+        <p>4.謹慎選擇投資與否，一但破產就無法再進行行動，且所有地產會被收回，可被其他玩家購買。</p>
+        <p>5.必須以Facebook帳號登入方可參加遊戲，並將您的戰績紀錄於排行榜中。</p>
+        <p>6.由於CSS的支援問題，目前使用IE在擲骰動畫上有顯示問題。（而且開發者短時間內沒有要處理這個問題的打算）</p>
+        <p>
+        {{#if currentUser}}
+          {{#if isUserPlayer}}
+            {{#if gameAWaiting}}
+              <button type="button" data-action="start">開始遊戲</button>
+            {{else}}
+              <button type="button" class="danger" data-action="restart">中斷遊戲重新開始</button>
+            {{/if}}
+            <button type="button" class="warnning" data-action="exit">離開遊戲</button>
+          {{else}}
+            {{#if gameAWaiting}}
+              <button type="button" data-action="join">參加遊戲</button>
+            {{else}}
+              <button type="button" class="danger" data-action="restart">中斷遊戲重新開始</button>
+            {{/if}}
+          {{/if}}
+        {{else}}
+          <button type="button" data-action="loginIn">Facebook登入</button>
+        {{/if}}
+        </p>
+        <p>當前遊戲玩家：</p>
+        {{#each players}}
+          <div class="i">
+            {{#if isComputer}}
+              {{getDisplayName}}
+            {{else}}
+              {{> getUserName this}}
+            {{/if}}
+          </div>
+        {{/each}}
+      </div>
+    </div>
+    <div class="close">✖</div>
+  </div>
+</template>

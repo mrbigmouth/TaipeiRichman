@@ -1,0 +1,20 @@
+<template name="popUp_end">
+  <div class="paper" style="width: 400px; height: auto;">
+    <div class="paper-inner">
+      <h2>遊戲結束</h2>
+      <div class="pop_up">
+        最後的獲勝者為
+        {{#if winnerId}}
+          {{> getUserName userId=winnerId}}
+        {{else}}
+          電腦
+        {{/if}}
+        ！
+        <div class="buttons">
+          <button type="button">再玩一場</button>
+        </div>
+      </div>
+    </div>
+    <div class="close">✖</div>
+  </div>
+</template>
