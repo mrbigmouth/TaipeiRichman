@@ -2,6 +2,9 @@
   <div id="main">
     <div class="map">
       <div id="map"></div>
+      {{#if isGameStart}}
+        {{>playerInfo}}
+      {{/if}}
       {{#if canAction}}
         <button type="button" id="action">動作</button>
       {{/if}}
@@ -10,5 +13,27 @@
       <button type="button" id="about">關於</button>
       {{> message}}
     </div>
+  </div>
+</template>
+
+<template name="playerInfo">
+  <div id="playerInfo">
+    {{#each players}}
+      <div style="color:{{getColor}};">
+      {{#if isBankruptcy}}
+        {{#if isComputer}}
+          {{getDisplayName}}：破產啦！
+        {{else}}
+          {{> getUserName this}}：破產啦！
+        {{/if}}
+      {{else}}
+        {{#if isComputer}}
+          {{getDisplayName}}：{{getMoney}}
+        {{else}}
+          {{> getUserName this}}：{{getMoney}}
+        {{/if}}
+      {{/if}}
+      </div>
+    {{/each}}
   </div>
 </template>
