@@ -2,6 +2,12 @@
   <div id="main">
     <div class="map">
       <div id="map"></div>
+      {{#if canAction}}
+        <button type="button" id="action">動作</button>
+      {{/if}}
+      <button type="button" id="game">遊戲</button>
+      <button type="button" id="rank">排行</button>
+      <button type="button" id="about">關於</button>
       {{> message}}
     </div>
   </div>
