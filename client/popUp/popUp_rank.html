@@ -1,0 +1,65 @@
+<template name="popUp_rank">
+  <div class="paper">
+    <div class="paper-inner">
+      <h2>臺北大富翁排行榜</h2>
+      <div class="pop_up">
+        <table class="rank">
+          <thead>
+            <tr>
+              <th class="sort">
+                玩家排名
+              </th>
+              <th class="name">
+                玩家名稱
+              </th>
+              <th class="victory">
+                勝利次數
+              </th>
+              <th class="totalWealth">
+                總財富
+              </th>
+              <th class="averageWealth">
+                平均財富
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {{rankSetSort}}
+            {{#if isReady}}
+              {{#each rankUsers}}
+                {{> popUp_rank_eachRank}}
+              {{else}}
+                <tr>
+                  <td colspan="5">已經沒有更多資料了喔！</td>
+                </tr>
+              {{/each}}
+            {{else}}
+              <tr>
+                <td colspan="5">載入中...</td>
+              </tr>
+            {{/if}}
+          </tbody>
+        </table>
+        <div class="buttons">
+          {{#if hasPrevPage}}
+            <button type="button" data-action="prev">上一頁</button>
+          {{/if}}
+          {{#if hasNextPage}}
+            　　<button type="button" data-action="next">下一頁</button>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    <div class="close">✖</div>
+  </div>
+</template>
+
+<template name="popUp_rank_eachRank">
+  <tr class="{{#if isLoginUser}}me{{/if}}">
+    <td class="sort">{{getSort}}</td>
+    <td class="name">{{> getUserName userId=this._id}}</td>
+    <td class="victory">{{getVictory}}</td>
+    <td class="totalWealth">{{getTotalWealth}}</td>
+    <td class="averageWealth">{{getAverageWealth}}</td>
+  </tr>
+</template>

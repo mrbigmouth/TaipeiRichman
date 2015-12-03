@@ -16,3 +16,11 @@ Meteor.publish('userName', function(userId) {
     }
   });
 });
+
+//發布rank資料
+Meteor.publish('rank', function(page) {
+  check(page, Number);
+  var skip = (page - 1) * 10;
+  var limit = 10;
+  return APP.db.rank.getLimitOrderByVictoryAndWealth(skip, limit);
+});
