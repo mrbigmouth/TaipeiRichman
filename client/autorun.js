@@ -38,6 +38,33 @@ Tracker.autorun(function() {
   }
 });
 
+//處理玩家棋子的移動動畫
+Tracker.autorun(function() {
+  //只有APP已啟動時才會繼續執行
+  if (!APP.isInitialized()) {
+    return;
+  }
+  //只有遊戲已經開始時才會繼續執行
+  if (gameStatus.isGameStart()) {
+    //若正在等候某個玩家移動，則自動關閉action對話框，並啟動玩家棋子移動動畫
+    if (gameStatus.isWaitMoving()) {
+      var currentPlayer = gameStatus.getCurrentPlayer();
+      var lastDiceResult =  APP.getLastDiceResult();
+      //開始從當前位置到下一個位置的移動
+      currentPlayer.moving(currentPlayer.getPosition(), currentPlayer.getNextPosition(lastDiceResult));
+    }
+    //只要不是正在等候某個玩家移動中
+    else {
+      //若當前有任何玩家棋子移動的動畫在執行中
+      if (Session.get('movingInterval')) {
+        //中止當前的玩家棋子移動動畫
+        Meteor.clearInterval(Session.get('movingInterval'));
+        Session.set('movingInterval', null);
+      }
+    }
+  }
+});
+
 //視地標的最新擁有者、房子層數狀態，在google地圖上設定地標、建造房子
 Tracker.autorun(function() {
   //只有APP已啟動時才會繼續執行
