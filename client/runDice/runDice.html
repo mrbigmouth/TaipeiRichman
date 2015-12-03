@@ -1,0 +1,18 @@
+<template name="runDice">
+  {{#if isShowDice}}
+    {{> runDice_dice}}
+  {{/if}}
+</template>
+
+<template name="runDice_dice">
+  <div id="runDice">
+    <div id="dice" class="{{diceClass}}">
+      <div class="top"></div>
+      <div class="front"></div>
+      <div class="left"></div>
+      <div class="back"></div>
+      <div class="right"></div>
+      <div class="bottom"></div>
+    </div>
+  </div>
+</template>
